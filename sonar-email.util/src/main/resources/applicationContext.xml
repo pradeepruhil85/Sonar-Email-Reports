@@ -12,13 +12,13 @@
         http://www.springframework.org/schema/util/spring-util-2.5.xsd
         ">
 	
-	<bean id="sonarJdService" class="com.jd.sonar.report.service.data.JDSonarServiceImpl"></bean>	
+	<bean id="sonarJdService" class="com.sonar.report.service.data.JDSonarServiceImpl"></bean>	
 	
-	<bean id="emailCreator" class="com.jd.sonar.report.service.email.VelocityEmailCreator">
+	<bean id="emailCreator" class="com.sonar.report.service.email.VelocityEmailCreator">
 		<property name="velocityEngine" ref="velocityEngine"></property>
 	</bean>
 	
-	<bean id="springMailSender" class="com.jd.sonar.report.service.email.SpringMailSender">
+	<bean id="springMailSender" class="com.sonar.report.service.email.SpringMailSender">
 		<property name="mailSender" ref="mailSender"></property>
 	</bean>
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
