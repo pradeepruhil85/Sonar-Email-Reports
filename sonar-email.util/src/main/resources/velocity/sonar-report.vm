@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Email</title>
+<style>
+/***********************************************/
+/* SYTLE CSS STYLES START */
+/***********************************************/
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+	outline:none
+}
+body {
+	font-size:12px;
+	font-family:Calibri, Verdana, sans-serif;
+	background-color:#efefef;
+}
+a {
+	text-decoration:none;
+	color:#367c2b
+}
+</style>
+</head>
+
+<body>
+<table background="#ffffff" style="margin:15px auto; background:#fff; width:900px; padding:15px;" allign="center" width="900" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td  width="600" align="center"><a href="#"><img style="margin-right:10px;" align="left" src="http://www.sonarqube.org/wp-content/themes/sonarsource.org/images/sonar.png" alt="Sonar" /></a>
+            <h2 style="color:#367C2B; font-size:18px; margin-top:10px; display:block; text-align:center">Sonar Report</h2>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+	   <tr> 
+        <td valign="top"><div style="background-color:#2c8634;height:10px;width:930px;">&nbsp;</div></td> 
+	</tr> 
+  <tr>
+    <td valign="top" align="left">
+      <table align="left" width="100%"  border="1" bordercolor="#cccccc" cellspacing="0" cellpadding="0">
+        <tr>
+          <th style="padding:5px;" >Name</th>
+          <th style="padding:5px;width:45px" width:'105px' >Lines&nbsp;of&nbsp;code</th>
+          <th style="padding:5px;">Rules&nbsp;compliance</th>
+          <th style="padding:5px;">Blocker</th>
+          <th style="padding:5px;">Critical</th>
+          <th style="padding:5px;">Major</th>
+          <th style="padding:5px;">Minor</th>
+          <th style="padding:5px;">Info</th>
+          <th style="padding:5px;">Status</th>
+          <th style="padding:5px;">$PREVDATE</th>
+          <th style="padding:5px;">$TODAYDATE</th>
+          <th style="padding:5px;">URL</th>
+        </tr>
+        #foreach( $projectStatBean in $projectStatBeans )
+        <tr>
+        	<td style="padding:5px;">$projectStatBean.projectName </td>
+        	<td style="padding:5px;">$projectStatBean.linesOfConde (${projectStatBean.prevLinesOfCode})</td>
+        	<td style="padding:5px;">$projectStatBean.rulesComplianceFomatted (${projectStatBean.prevRulesCompliance}%)</td>
+        	
+        	#if( $projectStatBean.differentialBlocker > 0 )
+        		<td style="padding:5px;">$projectStatBean.blocker&nbsp;(<span style="color:#ff0000">+${projectStatBean.differentialBlocker}</span>)</td>
+        	#elseif ($projectStatBean.differentialBlocker == 0) 
+        		<td style="padding:5px;">$projectStatBean.blocker&nbsp;(<span>${projectStatBean.differentialBlocker}</span>)</td>	
+        	#else
+        		<td style="padding:5px;">$projectStatBean.blocker&nbsp;(<span style="color:#00b050">${projectStatBean.differentialBlocker}</span>)</td>	
+        	#end
+        	
+      		#if( $projectStatBean.differentialCritical > 0 )
+        		<td style="padding:5px;">$projectStatBean.critical&nbsp;(<span style="color:#ff0000">+${projectStatBean.differentialCritical}</span>)</td>
+        		
+        	#elseif ($projectStatBean.differentialCritical == 0) 
+        		<td style="padding:5px;">$projectStatBean.critical&nbsp;(<span>${projectStatBean.differentialCritical}</span>)</td>	
+        	#else
+        		<td style="padding:5px;">$projectStatBean.critical&nbsp;(<span style="color:#00b050">${projectStatBean.differentialCritical}</span>)</td>	
+        	#end
+        	
+        	
+        	#if( $projectStatBean.differentialMajor > 0 )
+        		<td style="padding:5px;">$projectStatBean.major&nbsp;(<span style="color:#ff0000">+${projectStatBean.differentialMajor}</span>)</td>
+        		
+        	#elseif ($projectStatBean.differentialMajor == 0) 
+        		<td style="padding:5px;">$projectStatBean.major&nbsp;(<span>${projectStatBean.differentialMajor}</span>)</td>	
+        	#else
+        		<td style="padding:5px;">$projectStatBean.major&nbsp;(<span style="color:#00b050">${projectStatBean.differentialMajor}</span>)</td>	
+        	#end
+        	
+        	#if( $projectStatBean.differentialMinor > 0 )
+        		<td style="padding:5px;">$projectStatBean.minor&nbsp;(<span style="color:#ff0000">+${projectStatBean.differentialMinor}</span>)</td>
+        	#elseif ($projectStatBean.differentialMinor == 0) 
+        		<td style="padding:5px;">$projectStatBean.minor&nbsp;(<span>${projectStatBean.differentialMinor}</span>)</td>
+        	#else
+        		<td style="padding:5px;">$projectStatBean.minor&nbsp;(<span style="color:#00b050">${projectStatBean.differentialMinor}</span>)</td>	
+        	#end
+        	
+        	#if( $projectStatBean.differentialInfo > 0 )
+        		<td style="padding:5px;">$projectStatBean.info&nbsp;(<span style="color:#ff0000">+${projectStatBean.differentialInfo}</span>)</td>	
+        	#elseif ($projectStatBean.differentialInfo == 0) 
+        		<td style="padding:5px;">$projectStatBean.info&nbsp;(<span>${projectStatBean.differentialInfo}</span>)</td>	
+        	#else
+        		<td style="padding:5px;">$projectStatBean.info&nbsp;(<span style="color:#00b050">${projectStatBean.differentialInfo}</span>)</td>	
+        	#end
+        	
+        	#if( $projectStatBean.rulesCompliance > 90 )
+			    <td style="padding:5px;background:#00b050;"></td>
+			#elseif( ($projectStatBean.rulesCompliance <= 90) && ($projectStatBean.rulesCompliance >= 70))
+			    <td style="padding:5px;background:#ffc000;"></td>
+			#else
+			    <td style="padding:5px;background:#ff0000;"></td>
+			#end
+			<td style="padding:5px;">${projectStatBean.prevRulesCompliance}% </td>
+			<td style="padding:5px;">$projectStatBean.rulesComplianceFomatted </td>
+        </tr>
+        #end
+      </table>
+    </td>
+  </tr>
+  <tr>
+  <table width="100px" cellspacing="0" cellpadding="0" bordercolor="#cccccc" border="1">
+     <tr>
+          <th style="padding:5px;" >Rules&nbsp;Compilance</th>
+          <th style="padding:5px;" >Color Code</th>
+      </tr>
+      <tr>
+      	 <td> >90 % </td>
+      	 <td style="padding:5px;background:#00b050;"></td>
+      </tr>
+      <tr>
+      	 <td> 90<= && >=70 % </td>
+      	 <td style="padding:5px;background:#ffc000;"></td>
+      </tr>
+      <tr>
+      	 <td> <70 % </td>
+      	 <td style="padding:5px;background:#ff0000;"></td>
+      </tr>
+      
+    </table>
+    </tr>
+ </table>
+</body>
+</html>
