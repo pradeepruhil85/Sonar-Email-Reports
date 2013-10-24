@@ -1,4 +1,4 @@
-package com.jd.sonar.report.service.email;
+package com.sonar.report.service.email;
 
 import javax.mail.internet.MimeMessage;
 

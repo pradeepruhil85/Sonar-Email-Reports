@@ -10,12 +10,12 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.jd.sonar.report.service.data.JDSonarService;
-import com.jd.sonar.report.service.email.EmailCreator;
-import com.jd.sonar.report.service.email.MailSender;
-import com.jd.sonar.report.service.util.SonarUtils;
 import com.sonar.report.service.bean.EmailParams;
 import com.sonar.report.service.bean.ProjectStatsBean;
+import com.sonar.report.service.data.SonarService;
+import com.sonar.report.service.email.EmailCreator;
+import com.sonar.report.service.email.MailSender;
+import com.sonar.report.service.util.SonarUtils;
 
 public class SonarClient {
 
@@ -82,7 +82,7 @@ public class SonarClient {
 	
 	private List<ProjectStatsBean> getJDSonarReportData(Date prevDate){
 		
-		JDSonarService jdSonarService = (JDSonarService) applicationContext.getBean("sonarJdService");
+		SonarService jdSonarService = (SonarService) applicationContext.getBean("sonarJdService");
 		
 		List<ProjectStatsBean> projectStatsBeans = jdSonarService.getAllProjectsMetrics(SonarUtils.getSonarMetricsArray(),prevDate);
 

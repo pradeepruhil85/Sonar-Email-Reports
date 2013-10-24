@@ -1,4 +1,4 @@
-package com.jd.sonar.report.service.data;
+package com.sonar.report.service.data;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,12 +12,12 @@ import org.sonar.wsclient.services.TimeMachine;
 import org.sonar.wsclient.services.TimeMachineCell;
 import org.sonar.wsclient.services.TimeMachineQuery;
 
-import com.jd.sonar.report.service.util.SonarUtils;
 import com.sonar.report.service.bean.ProjectStatsBean;
+import com.sonar.report.service.util.SonarUtils;
 
-public class JDSonarServiceImpl implements JDSonarService {
+public class SonarServiceImpl implements SonarService {
 
-	private static Logger LOG = Logger.getLogger(JDSonarServiceImpl.class);
+	private static Logger LOG = Logger.getLogger(SonarServiceImpl.class);
 
 	@Override
 	public List<ProjectStatsBean> getAllProjectsMetrics(String[] metrics, Date prevDate) {

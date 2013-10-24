@@ -1,4 +1,4 @@
-package com.jd.sonar.report.service.data;
+package com.sonar.report.service.data;
 
 import java.util.Date;
 import java.util.List;
@@ -13,7 +13,7 @@ import com.sonar.report.service.bean.ProjectStatsBean;
  * @author Pradeep
  * 
  */
-public interface JDSonarService {
+public interface SonarService {
 	
 
 	/**

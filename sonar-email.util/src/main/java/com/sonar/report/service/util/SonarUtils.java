@@ -1,4 +1,4 @@
-package com.jd.sonar.report.service.util;
+package com.sonar.report.service.util;
 
 import java.util.Arrays;
 import java.util.List;
