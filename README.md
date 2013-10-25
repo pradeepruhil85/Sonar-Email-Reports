@@ -1,4 +1,4 @@
-Sonar-Email-Utility
+Sonar-Email-Reports
 ===================
 
 Sonar-Email-Reports
