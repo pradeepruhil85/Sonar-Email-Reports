@@ -1,7 +1,7 @@
 Sonar-Email-Utility
 ===================
 
-Sonar-Email-Utilty
+Sonar-Email-Reports
 
 Sonar Email Utility project is a simple project which wil send the sonar reports of the projects configured in the SONAR
 in email.
