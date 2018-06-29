@@ -22,7 +22,7 @@
 		<property name="mailSender" ref="mailSender"></property>
 	</bean>
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="narelaymail.sapient.com" />
+		<property name="host" value="<<hostname>>" />
 		<property name="username" value=""></property>
 		<property name="password" value=""></property>
 		<property name="port" value="25"></property>
